@@ -1,0 +1,338 @@
+<html>
+<head><title>car services project</title>
+
+<style>
+#logo{top:2%;left:1%;position:absolute;width:95%;height:15%;
+overflow:hidden;}
+#page{
+top:15%;left:0%;position:absolute;width:100%;height:70%;
+background-color:pink;silver;overflow:auto;
+}
+
+#b{position:absolute;right:0%;top:20%;}
+input[type=text]{color:green;background:transparent;;}
+</style>
+</head>
+<body>
+	<div id="logo"><font size="5vw" color="red" style="bold">WELCOME TO CAR SERVICE CENTRE</font></div>
+	
+	
+	
+	<div id="page" >
+
+Name:-<input type="text" id="n" onblur="nm()"><span id="nv" style="color:red;"></span><br><br>
+Email:-<input type="text" id="e" onblur="eml()" ><span id="em" style="color:red;"></span><br><br>
+Phone:-<input type="text" id="ph" onblur="phn()" maxlength="10"><span id="ph" style="color:red;"></span><br><br>
+
+service code:-<select id="sc" onchange="view()">
+<option value="select">select</option>
+<option value="BS01">BS01</option>
+<option value="EF01">EF01</option>
+<option value="CF01">CF01</option>
+<option value="BF01">BF01</option>
+<option value="GF01">GF01</option>
+</SELECT>
+SERVICE:-<select id="s" onchange="view()">
+<option value="select">
+<option value="basic service">basic service</option>
+<option value="engineservice">engine service</option>
+<option value="clutch service">clutch service</option>
+<option value="brake service">brake service</option>
+<option value="gear service">gear service</option>
+</select>
+
+product:-<select id="p" onchange="view()">
+<option value="select">Select</option>
+<option value="hatchback">hatchback</option>
+<option value="sedan">sedan</option>
+<option value="suv">suv</option>
+
+</select>
+Rate:-<input type="text" id="r" readonly >
+
+</select>
+
+<button onclick="add()">add to cart </button>
+<table border="1" width="500">
+<tr>
+<th>SERVICE CODE</th>
+<th>SERVICE</th>
+<th>PRODUCT</th>
+<th>RATE</th>
+<th>Clear</th>
+</tr>
+<tr>
+<th><input type="text" id="p1" value="0" readonly></th>
+<th><input type="text" id="r1" value="0"readonly></th>
+<th><input type="text" id="sc1" value="0" readonly></th>
+<th><input type="text" id="s1" value="0" readonly></th>
+
+<th><button onclick="sam()">clear</button></th>
+</tr>
+<tr>
+<th><input type="text" id="sc2" value="0" readonly></th>
+<th><input type="text" id="s2" value="0" readonly></th>
+<th><input type="text" id="p2" value="0" readonly></th>
+<th><input type="text" id="r2" value="0" readonly></th>
+
+
+<th><button onclick="sam2()">clear</button></th>
+</tr>
+<tr>
+<th><input type="text" id="sc3" value="0" readonly></th>
+<th><input type="text" id="s3" value="0" readonly></th>
+<th><input type="text" id="p3" value="0" readonly></th>
+<th><input type="text" id="r3" value="0" readonly></th>
+
+<th><button onclick="sam3()">clear</button></th>
+</tr>
+<tr>
+<th><input type="text" id="sc4" value="0" readonly></th>
+<th><input type="text" id="s4" value="0" readonly></th>
+<th><input type="text" id="p4" value="0" readonly></th>
+<th><input type="text" id="r4" value="0" readonly></th>
+
+<th><button onclick="sam4()">clear</button></th>
+</tr>
+
+</table>
+<button onclick="bill()">bill</button>
+<button onclick="prt()">print bill detail</button>
+<br><br>
+
+<br>
+<textarea rows="13" cols="50"  id="b" readonly></textarea>
+
+	</div>
+	<script>
+ function view()
+{
+var o,r,i;
+o=document.getElementById("p").value;
+if(o=='hatchback' && o=='BS01')
+{
+r=2000;
+
+} else if(o=='hatchback' && o=='EF01')
+{
+r=5000;
+
+} else if(o=='hatchback' && o=='CF01')
+{
+r=2000;
+
+}
+else if(o=='hatchback' && o=='BF01')
+{
+r=1000;
+
+}
+else if(o=='hatchback' && o=='GF01')
+{
+r=1000;
+
+}
+else if(o=='SEDAN' && o=='BS01')
+{
+r=4000;
+
+}
+else if(o=='SEDAN' && o=='EF01')
+{
+r=8000;
+
+}
+else if(o=='SEDAN' && o=='CF01')
+{
+r=4000;
+
+}
+else if(o=='SEDAN' && o=='BF01')
+{
+r=1500;
+
+}
+else if(o=='SEDAN' && o=='GF01')
+{
+r=6000;
+
+}
+else if(o=='SUV' && o=='BS01')
+{
+r=5000;
+}
+else if(o=='SUV' && o=='EF01')
+{
+r=10000;
+}else if(o=='SUV' && o=='CF01')
+{
+r=6000;
+}
+else if(o=='SUV' && o=='BF01')
+{
+r=2500;
+}else if(o=='SUV' && o=='GF01')
+{
+r=8000;
+}
+else{
+r=0;
+
+}
+document.getElementById("r").value=r;
+
+}
+function add()
+{
+  var p,r,;
+p=document.getElementById("p").value;
+r=document.getElementById("r").value;
+
+if(p!='select' )
+{
+var p1,p2,p3,P4;
+p1=document.getElementById("p1").value;
+p2=document.getElementById("p2").value;
+p3=document.getElementById("p3").value;
+p4=document.getElementById("p4").value;
+if(p1=='0')
+{
+document.getElementById("p1").value=p;
+document.getElementById("r1").value=r;
+document.getElementById("sc1").value=sc;
+document.getElementById("s1").value=s;
+
+}
+else if(p2=='0')
+{
+document.getElementById("p2").value=p;
+document.getElementById("r2").value=r;
+document.getElementById("sc2").value=sc;
+document.getElementById("s2").value=s;
+
+}
+else if(p3=='0')
+{
+document.getElementById("p3").value=p;
+document.getElementById("r3").value=r;
+document.getElementById("sc3").value=sc;
+document.getElementById("s3").value=s;
+}
+else if(p4=='0')
+{
+document.getElementById("p4").value=p;
+document.getElementById("r4").value=r;
+document.getElementById("sc4").value=sc;
+document.getElementById("s4").value=s;
+}
+else
+{
+alert(" cart full ");}
+}
+else
+{
+alert(" please select product "); 
+}
+
+}
+function sam(){
+document.getElementById("p1").value='0';
+document.getElementById("r1").value='0';
+document.getElementById("sc1").value='0';
+document.getElementById("s1").value='0';
+}
+function sam2(){
+document.getElementById("p2").value='0';
+document.getElementById("r2").value='0';
+document.getElementById("sc2").value='0';
+document.getElementById("s2").value='0';
+}
+function sam3(){
+document.getElementById("p3").value='0';
+document.getElementById("r3").value='0';
+document.getElementById("sc3").value='0';
+document.getElementById("s3").value='0';
+}
+function sam4){
+document.getElementById("p4").value='0';
+document.getElementById("r4").value='0';
+document.getElementById("sc4").value='0';
+document.getElementById("s4").value='0';
+}
+function bill(){
+var p1,r1,sc1,s1,a1=0;
+p1=document.getElementById("p1").value;
+sc1=document.getElementById("sc1").value;
+s1=document.getElementById("s1").value;
+r1=document.getElementById("r1").value;
+if(p1!='Select')
+{
+ a1=r1;
+}
+var p2,sc2,s2,r2,a2=0;
+p2=document.getElementById("p2").value;
+sc2=document.getElementById("sc2").value;
+s2=document.getElementById("s2").value;
+r2=document.getElementById("r2").value;
+
+if(p2!='select' )
+{
+ a2=r2;
+}
+var p3,sc3,s3,r3,a3=0;
+p3=document.getElementById("p3").value;
+sc3=document.getElementById("sc3").value;
+s3=document.getElementById("s3").value;
+r3=document.getElementById("r3").value;
+if(p3!='select')
+{
+ a3=r3;
+}
+
+var p4,sc4,s4,r4,a4=0;
+p4=document.getElementById("p4").value;
+sc4=document.getElementById("sc4").value;
+s4=document.getElementById("s4").value;
+r4=document.getElementById("r4").value;
+if(p4!='select')
+{
+ a4=r4;
+}
+var t=0;
+t=a1+a2+a3,a4;
+if(t>0){
+var n,e,ph;
+n=document.getElementById("n").value;
+e=document.getElementById("e").value;
+ph=document.getElementById("ph").value;
+document.getElementById("b").value="Dear "+n;
+document.getElementById("b").value+="\n Your bill detail send on your Email Id :- "+e;
+document.getElementById("b").value+="\n Mob No. "+ph;
+if(p1!='select'){
+document.getElementById("b").value+="\n\nYour purches item "+p1+", "+sc1+", pre/pice Rs@ "+r1;
+}
+if(p2!='select'){
+document.getElementById("b").value+="\n\nYour purches item "+p2+", "+sc2+", pre/pice Rs@ "+r2;
+}
+if(p3!='select' ){
+document.getElementById("b").value+="\n\nYour purches item "+p3+", "+sc3+", pre/pice Rs@ "+r3;
+}
+
+if(p4!='select' ){
+document.getElementById("b").value+="\n\nYour purches item "+p4+", "+sc4+", pre/pice Rs@ "+r4;
+}
+document.getElementById("b").value+="\n\nYour Pay Bill ="+t;
+document.getElementById("b").value+="\n\n.....Thank You......";
+}
+else {
+alert("please select product & quantity");
+}
+}
+   function prt(){ 
+
+ window.print();
+   }
+
+</script>
+</body>
+</html>
